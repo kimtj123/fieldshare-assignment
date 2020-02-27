@@ -1,0 +1,85 @@
+/********************제목**********************/
+
+.header 
+{
+  width : 40vw;
+  height: 10vh;
+  border: black solid;
+  margin: auto;
+  display: table;
+  text-align: center
+}
+.header-title 
+{
+  display: table-cell;
+  margin: 0;
+  vertical-align: middle;
+  font-size:xx-large;
+}
+
+/********************DB 항목과 내용**********************/
+
+.body 
+{
+  width: 80vw;
+  height: 60vh;
+  margin: auto;
+  border: black solid;
+  margin-top: 2vh;
+}
+.facility
+{
+  border-bottom: solid;
+  display: flex;
+  height: 5vh;
+  text-align: center;
+}
+.facility-id
+{
+    border-right: solid;
+    width: 50%;
+    height: 100%;
+    font-size: 2vw;
+    line-height: 5vh;
+}
+.facility-name
+{
+  width: 50%;
+  height: 100%;
+  font-size: 2vw;
+  line-height: 5vh;
+}
+
+/********************버튼과 인풋창**********************/
+.footer
+{
+  width: 80vw;
+  height : 20vh;
+  border : solid;
+  border-top: none;
+  margin: auto
+}
+.control
+{
+  padding-top: 5vh;
+  text-align: center;
+}
+.button
+{
+  border: none;
+    width: 10vw;
+    height: 5vh;
+    outline: none;
+    margin-left: 1vw;
+}
+.input-container
+{
+  padding-top: 4vh;
+  text-align: center;
+}
+
+.input
+{
+  width: 25%;
+  height: 3vh;
+}
