@@ -1,0 +1,29 @@
+[debug] [2020-02-27T15:24:36.117Z] ----------------------------------------------------------------------
+[debug] [2020-02-27T15:24:36.118Z] Command:       /home/kimtj123/.nvm/versions/node/v12.4.0/bin/node /home/kimtj123/.nvm/versions/node/v12.4.0/bin/firebase serve
+[debug] [2020-02-27T15:24:36.118Z] CLI Version:   7.14.0
+[debug] [2020-02-27T15:24:36.118Z] Platform:      linux
+[debug] [2020-02-27T15:24:36.118Z] Node Version:  v12.4.0
+[debug] [2020-02-27T15:24:36.118Z] Time:          Fri Feb 28 2020 00:24:36 GMT+0900 (GMT+09:00)
+[debug] [2020-02-27T15:24:36.118Z] ----------------------------------------------------------------------
+[debug] [2020-02-27T15:24:36.118Z] 
+[debug] [2020-02-27T15:24:36.122Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-27T15:24:36.122Z] > authorizing via signed-in user
+[debug] [2020-02-27T15:24:36.122Z] [iam] checking project fieldshare-assignment for permissions ["firebase.projects.get"]
+[debug] [2020-02-27T15:24:36.123Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-02-27T15:24:36.123Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-02-27T15:24:36.466Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-27T15:24:36.476Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/fieldshare-assignment:testIamPermissions  
+
+[debug] [2020-02-27T15:24:38.124Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-27T15:24:38.127Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fieldshare-assignment  
+ 
+[debug] [2020-02-27T15:24:38.940Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/kimtj123/projects/fieldshare-assignment'...
+[info] 
+[debug] [2020-02-27T15:24:38.944Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fieldshare-assignment/webApps/-/config  
+ 
+[debug] [2020-02-27T15:24:40.579Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] ✔  hosting: Local server: http://localhost:5000

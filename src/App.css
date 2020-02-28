@@ -37,6 +37,7 @@
 .facility-id
 {
     border-right: solid;
+    border-bottom: solid;
     width: 50%;
     height: 100%;
     font-size: 2vw;
@@ -44,12 +45,17 @@
 }
 .facility-name
 {
+  border-bottom: solid;
   width: 50%;
   height: 100%;
   font-size: 2vw;
   line-height: 5vh;
 }
-
+.facility-container
+{
+  display : flex;
+  text-align: center;
+}
 /********************버튼과 인풋창**********************/
 .footer
 {
@@ -78,8 +84,20 @@
   text-align: center;
 }
 
-.input
+.input-write
 {
   width: 25%;
   height: 3vh;
+  font-size: 2vw;
+  margin: auto;
 }
+
+/* .input-update
+{
+  width: 25%;
+  height: 3vh;
+  font-size: 2vw;
+  margin: auto;
+  background : ligh
+} */
+
