@@ -5,13 +5,14 @@ import * as firebase from 'firebase'
 import './App.css';
 
 function Footer(props) {  
-  const [ update, updateClick ] = useState(false);
+
+  const [ update, updateClick ] = useState(false); // 수정 버튼 클릭 시 div와 input을 왔다갔다하기 위한 state
   
-  let index = props.items === null ?  0 : props.items.length
+  let index = props.items === null ?  0 : props.items.length 
   let inputValue = props.inputValue
 
 
-  function divToInput(index, content)
+  function divToInput(index, content) // 수정 버튼 클릭 시 div와 input을 왔다갔다하기 위한 function
   {    
     if(update === true)
     {
@@ -20,18 +21,15 @@ function Footer(props) {
     updateClick(!update)      
   }
 
-  function updateContent(index, content)
+  function updateContent(index, content) 
   {
-    console.log("updateContent :: ", content);
-    console.log("dd :: ",  firebase.database().ref('facilities/' + index))
     firebase.database().ref('facilities/' + index).update({
       name : content
     }).then(res => {
-      props.changeInput(content);
+      props.clearTarget();
     })
   } 
 
-  console.log("Footer :: ", props.targetID)
   return (
       <div className = "footer">
         <div className = "input-container">

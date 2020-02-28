@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { useState } from 'react';
 import * as firebase from 'firebase'
 
 import { firebaseConfig } from './config/config.js'
 import Body from "./body"
 import Footer from "./footer"
-
-
 
 class App extends Component {
   constructor() {
@@ -18,14 +15,14 @@ class App extends Component {
       targetID : "",
       inputValue : ""
     }
-
+    // DB 관련
     this.app = firebase.initializeApp(firebaseConfig);
     this.database = this.app.database().ref().child('facilities')
     this.writeData = this.writeData.bind(this);    
     this.removeData = this.removeData.bind(this);
-
-    this.clearTarget = this.clearTarget.bind(this);
+    // input, click 이벤트 관련
     this.rowClick = this.rowClick.bind(this);
+    this.clearTarget = this.clearTarget.bind(this);
     this.changeInput = this.changeInput.bind(this);
   }
 
@@ -45,7 +42,6 @@ class App extends Component {
   }
   removeData(index){
     
-    console.log("removeData :: ", index);
     firebase.database().ref('facilities/'+index).remove()
     .then(() => console.log("remove!"))
     .catch((err)=> console.log(err))
@@ -68,12 +64,13 @@ class App extends Component {
   }
 
   changeInput(e){    
+    console.log(e.target.value)
     this.setState({
       inputValue : e.target.value
     })
   }
 
-  componentDidMount(){
+  componentDidMount(){ // Hooks 에선 useEffect로 대체 가능하다.
     this.database.on('value', snap => {
       console.log("snap.val :: ", snap.val())
       this.setState({
@@ -91,6 +88,7 @@ class App extends Component {
         </header>
         {/*DB 항목과 내용 */}
         <Body items = {this.state.facilities} rowClick = {this.rowClick}/>
+        {/*컨트롤러 */}
         <Footer 
           writeData = {this.writeData}
           removeData = {this.removeData}
@@ -101,8 +99,7 @@ class App extends Component {
           items = {this.state.facilities}
           inputValue = {this.state.inputValue}
           targetName = {this.state.targetName} 
-          targetID = {this.state.targetID}
-          
+          targetID = {this.state.targetID}          
           />   
     </div>  
     )

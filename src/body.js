@@ -2,8 +2,6 @@ import React from 'react';
 import './App.css';
 
 function Body(props) {
-  // console.log(props.items)
-  // console.log(props.rowClick)
   function makeList(list) {    
     if(list=== null || list.length === 0)
     {
