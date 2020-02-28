@@ -43,20 +43,19 @@ class App extends Component {
     .then(() => console.log("write!"))
     .catch((err)=> console.log(err))
   }
-  removeData(id){
+  removeData(index){
     
-    console.log("removeData :: ", id);
-    firebase.database().ref('facilities/'+id).remove()
+    console.log("removeData :: ", index);
+    firebase.database().ref('facilities/'+index).remove()
     .then(() => console.log("remove!"))
     .catch((err)=> console.log(err))
   }
 
   rowClick(e){
-    let index = e.currentTarget.getAttribute('name')    
-    console.log("index :: ",index)
-    let name = e.currentTarget.children[1].children[0].innerHTML
+    let id = e.currentTarget.getAttribute('name');
+    let name = e.currentTarget.children[1].children[0].innerHTML;
     this.setState({
-      targetID : index,
+      targetID : id,
       targetName: name
     })    
     console.log("rowClick :: ", name)

@@ -5,31 +5,33 @@ import * as firebase from 'firebase'
 import './App.css';
 
 function Footer(props) {  
-  const [update, updateClick] = useState(false);
-
+  const [ update, updateClick ] = useState(false);
+  
   let index = props.items === null ?  0 : props.items.length
   let inputValue = props.inputValue
 
 
-  function divToInput()
+  function divToInput(index, content)
   {    
     if(update === true)
     {
-      console.log("내용변경 함수")
+      updateContent(index, content)
     }
     updateClick(!update)      
   }
 
-  // function replaceContent(index, content)
-  // {
-  //   firebase.database().ref('users/' + userId).set({
-  //     username: name,
-  //     email: email,
-  //     profile_picture : imageUrl
-  //   });
-  // }
+  function updateContent(index, content)
+  {
+    console.log("updateContent :: ", content);
+    console.log("dd :: ",  firebase.database().ref('facilities/' + index))
+    firebase.database().ref('facilities/' + index).update({
+      name : content
+    }).then(res => {
+      props.changeInput(content);
+    })
+  } 
 
-  console.log("Footer :: ", props)
+  console.log("Footer :: ", props.targetID)
   return (
       <div className = "footer">
         <div className = "input-container">
@@ -38,10 +40,10 @@ function Footer(props) {
             ? <input className = "input-write" onChange = {props.changeInput} onFocus={(e) =>{e.target.value = ""}}/>   
             : (
                 update === false 
-                ? <div className = "input-update"  onChange = {props.changeInput}>             
+                ? <div className = "input-update" >             
                   {"선택시설 : " + props.targetName}
                 </div> 
-                : <input className = "input-update" />
+                : <input className = "input-update" onChange = {props.changeInput}/>
               )
           }
         </div>
@@ -53,7 +55,7 @@ function Footer(props) {
             <div>
               <button className = "button" onClick = {props.clearTarget}>취 소</button>
               <button className = "button" onClick = {()=>{props.removeData(props.targetID)}}>삭 제</button>
-              <button className = "button" onClick = {divToInput}>
+              <button className = "button" onClick = {() => {divToInput(props.targetID, props.inputValue)}}>
                 수 정
               </button>
             </div>
